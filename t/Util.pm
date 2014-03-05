@@ -39,12 +39,4 @@ sub slurp {
     scalar do { local $/; <$fh> };
 }
 
-# initialize database
-use OAuth1TokenVendingServer;
-{
-    unlink 'db/test.db' if -f 'db/test.db';
-    system("sqlite3 db/test.db < sql/sqlite.sql");
-}
-
-
 1;
