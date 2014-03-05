@@ -1,0 +1,27 @@
+: cascade "include/layout.tx"
+
+: override content -> {
+
+<h1 style="margin-top: 20px; text-align: center; font-size: 80px; line-height: 1; letter-spacing: -2px;"><: $app_name :></h1>
+
+<div style="text-align: center; margin-top: 40px">
+  <table class="table">
+    <tr>
+      <th>
+        Token:
+      </th>
+      <td>
+        <: $token :>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        Token Secret:
+      </th>
+      <td>
+        <: $token_secret :>
+      </td>
+    </tr>
+  </table>
+</div>
+: }
