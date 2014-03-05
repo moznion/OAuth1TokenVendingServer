@@ -10,7 +10,7 @@
       <th>
         Token:
       </th>
-      <td>
+      <td style="text-align: left">
         <: $token :>
       </td>
     </tr>
@@ -18,7 +18,7 @@
       <th>
         Token Secret:
       </th>
-      <td>
+      <td style="text-align: left">
         <: $token_secret :>
       </td>
     </tr>
