@@ -11,6 +11,11 @@ sub dispatch {
     return (OAuth1TokenVendingServer::Web::Dispatcher->dispatch($_[0]) or die "response is not generated");
 }
 
+sub res_406 {
+    my ($c) = @_;
+    return $c->create_simple_status_page(406, 'Not Acceptable');
+}
+
 # load plugins
 __PACKAGE__->load_plugins(
     'Web::FillInFormLite',

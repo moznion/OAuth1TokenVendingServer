@@ -38,7 +38,10 @@ get '/auth' => sub {
     my $request_token = $consumer->get_request_token(
         callback_url => $callback_url,
         scope        => $scope,
-    ) or die $consumer->errstr;
+    );
+    unless ($request_token) {
+        return $c->res_406;
+    }
 
     $c->session->set(request_token => $request_token->as_encoded);
     $c->redirect($consumer->url_to_authorize(token => $request_token));
@@ -50,12 +53,15 @@ get '/token' => sub {
     my $verifier      = $c->req->param('oauth_verifier');
     my $request_token = OAuth::Lite::Token->from_encoded($c->session->get('request_token'));
 
+    $c->session->expire;
+
     my $access_token = $consumer->get_access_token(
         token    => $request_token,
         verifier => $verifier,
-    ) or die $consumer->errstr;
-
-    $c->session->expire;
+    );
+    unless ($access_token) {
+        return $c->res_406;
+    }
 
     return $c->render('token.tx', {
         app_name    => $app_name,
