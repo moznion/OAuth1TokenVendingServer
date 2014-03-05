@@ -1,4 +1,4 @@
-# OAuth2TokenVendingServer
+# OAuth1TokenVendingServer
 
 Access token vending server for OAuth1
 
