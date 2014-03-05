@@ -2,7 +2,7 @@ use strict;
 use warnings;
 use utf8;
 
-return +{
++{
     app_name    => '__YOUR_APP_NAME__',
     description => '__YOUR_APP_DESCRIPTION__',
 
