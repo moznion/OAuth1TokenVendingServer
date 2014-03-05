@@ -1,0 +1,3 @@
+name="OAuth1TokenVendingServer"
+[build]
+build_class = "builder::MyBuilder"
